@@ -12,12 +12,13 @@ Human Activity Recognition database comprises the recordings of 30 subjects perf
 The dataset for this project was downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  A full description of the dataset was obtained from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.  The files used for this project are as follows.
 
 **activity_labels.txt** - this file contains 2 variables (a number and an activity description) and 6 observations  -  one for each of the 6 following six activities as follows:
-1.	WALKING
-2.	WALKING_UPSTAIRS
-3.	WALKING_DOWNSTAIRS
-4.	SITTING
-5.	STANDING
-6.	LAYING
+
+1.  WALKING
+2.  WALKING_UPSTAIRS
+3.  WALKING_DOWNSTAIRS
+4.  SITTING
+5.  STANDING
+6.  LAYING
 
 **features.txt** - a 561-feature vector with time and frequency domain variables.   The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
 
