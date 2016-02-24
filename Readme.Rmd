@@ -10,12 +10,12 @@ output: html_document
 Human Activity Recognition database comprises the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.  The experiments were carried out with a group of 30 volunteers, each person performed six activities (WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTING, STANDING, LAYING), while wearing a smartphone (Samsung Galaxy S II) on the waist.  Using its embedded accelerometer and gyroscope, the researchers captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.  The obtained dataset was randomly partitioned into two sets, where 70% (7352 observations) of the volunteers were selected for generating the training data and 30% (2947 observations) selected for the test data.
 
 ##Project Objectives
-The purpose of this project is to translate the raw data which was downloaded from the Human Activity Recognition Using Smartphones Data Set Project and prepare two tidy data sets to be used for future analysis, in accordance with the course project instructions listed below
-1.  Merge the training and the test sets to create one data set.
-2.  Extract only the measurements on the mean and standard deviation for each measurement.
-3.  Use descriptive activity names to name the activities in the data set
-4.  Appropriately label the data set with descriptive variable names.
-5.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+The purpose of this project is to translate the raw data which was downloaded from the Human Activity Recognition Using Smartphones Data Set Project and prepare two tidy data sets to be used for future analysis, in accordance with the course project instructions listed below: 
+  1.  Merge the training and the test sets to create one data set.
+  2.  Extract only the measurements on the mean and standard deviation for each measurement.
+  3.  Use descriptive activity names to name the activities in the data set
+  4.  Appropriately label the data set with descriptive variable names.
+  5.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ##Prerequisites
 The project requires the following R package libraries as follows.
