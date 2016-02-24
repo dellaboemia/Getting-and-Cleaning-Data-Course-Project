@@ -79,15 +79,22 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 **Train Files** - three files in the same structure as that of the test files.  The training file contains 7352 observations.
 
 #File Structure - Output Files 
-The output datasets, analysis.txt and analysis_summary.txt,  conform to the standards for tidy data, specifically that:
+The output datasets conform to the standards for tidy data, specifically that:
 
 1.	Each variable measured should be in one column
 2.	Each different observation of that variable should be in a different row
 3.	There should be one table for each "kind" of variable
 4.	Multiple tables should include a column in them that allows them to be linked.
 
-There are two output files, and they are as follows:
-**run_analysis.txt** - this file contains 10,299 observations of the following 68 variables
+##Output Files 
+The two output files are as follows:
+
+**run_analysis.txt** - this file contains 10,299 observations of  68 variables listed below, and
+
+**run_analysis_summary.txt** this file summarizes run_analysis.txt by subject and activity, and calculates the mean for each of the 66 measurement variables listed below.
+
+##Output File Format
+Both output files contain the following 68 variables
 *	subject - the number, 1 thru 30, indicating the subject observed
 
 *	activity-label - one of the following activities observed:
@@ -98,38 +105,38 @@ There are two output files, and they are as follows:
   +	STANDING
   +	LAYING
 
-*measurements  - of the 561 features, 66 features were selected which represented the mean and standard deviations for each measurement.  Note: '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.  Note, that the variable names have been changed to be more descriptive.
-+	time-body-accelerometer-mean-x,y,z
-+	time-body-accelerometer-standard-deviation-x,y,z
-+	time-gravity-accelerometer-mean-x,y,z
-+	time-gravity-accelerometer-standard-deviation-x,y,z
-+	time-body-accelerometer-jerk-mean-x,y,z
-+	time-body-accelerometer-jerk-standard-deviation-x,y,z
-+	time-body-gyroscope-mean-x,y,z
-+	time-body-gyroscope-standard-deviation-x,y,z
-+	time-body-gyroscope-jerk-mean-x,y,z
-+	time-body-gyroscope-jerk-standard-deviation-x,y,z
-+	time-body-accelerometer-mag-mean
-+	time-body-accelerometer-mag-standard-deviation
-+	time-gravity-accelerometer-mag-mean
-+	time-gravity-accelerometer-mag-standard-deviation
-+	time-body-accelerometer-jerkmag-mean
-+	time-body-accelerometer-jerkmag-standard-deviation
-+	time-body-gyroscope-mag-mean
-+	time-body-gyroscope-mag-standard-deviation
-+	time-body-gyroscope-jerkmag-mean
-+	time-body-gyroscope-jerkmag-standard-deviation
-+	frequency-body-accelerometer-mean-x,y,z
-+	frequency-body-accelerometer-standard-deviation-x,y,z
-+	frequency-body-accelerometer-jerk-mean-x,y,z
-+	frequency-body-accelerometer-jerk-standard-deviation-x,y,z
-+	frequency-body-gyroscope-mean-x,y,z
-+	frequency-body-gyroscope-standard-deviation-x,y,z
-+	frequency-body-accelerometer-mag-mean
-+	frequency-body-accelerometer-mag-standard-deviation
-+	frequency-body-body-accelerometer-jerkmag-mean
-+	frequency-body-body-accelerometer-jerkmag-standard-deviation
-+	frequency-body-body-gyroscope-mag-mean
-+	frequency-body-body-gyroscope-mag-standard-deviation
-+	frequency-body-body-gyroscope-jerkmag-mean
-+	frequency-body-body-gyroscope-jerkmag-standard-deviation
+* measurements  - of the 561 features, 66 features were selected which represented the mean and standard deviations for each measurement.  Note: '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.  Note, that the variable names have been changed to be more descriptive.
+  +	time-body-accelerometer-mean-x,y,z
+  +	time-body-accelerometer-standard-deviation-x,y,z
+  +	time-gravity-accelerometer-mean-x,y,z
+  +	time-gravity-accelerometer-standard-deviation-x,y,z
+  +	time-body-accelerometer-jerk-mean-x,y,z
+  +	time-body-accelerometer-jerk-standard-deviation-x,y,z
+  +	time-body-gyroscope-mean-x,y,z
+  +	time-body-gyroscope-standard-deviation-x,y,z
+  +	time-body-gyroscope-jerk-mean-x,y,z
+  +	time-body-gyroscope-jerk-standard-deviation-x,y,z
+  +	time-body-accelerometer-mag-mean
+  +	time-body-accelerometer-mag-standard-deviation
+  +	time-gravity-accelerometer-mag-mean
+  +	time-gravity-accelerometer-mag-standard-deviation
+  +	time-body-accelerometer-jerkmag-mean
+  +	time-body-accelerometer-jerkmag-standard-deviation
+  +	time-body-gyroscope-mag-mean
+  +	time-body-gyroscope-mag-standard-deviation
+  +	time-body-gyroscope-jerkmag-mean
+  +	time-body-gyroscope-jerkmag-standard-deviation
+  +	frequency-body-accelerometer-mean-x,y,z
+  +	frequency-body-accelerometer-standard-deviation-x,y,z
+  +	frequency-body-accelerometer-jerk-mean-x,y,z
+  +	frequency-body-accelerometer-jerk-standard-deviation-x,y,z
+  +	frequency-body-gyroscope-mean-x,y,z
+  +	frequency-body-gyroscope-standard-deviation-x,y,z
+  +	frequency-body-accelerometer-mag-mean
+  +	frequency-body-accelerometer-mag-standard-deviation
+  +	frequency-body-body-accelerometer-jerkmag-mean
+  +	frequency-body-body-accelerometer-jerkmag-standard-deviation
+  +	frequency-body-body-gyroscope-mag-mean
+  +	frequency-body-body-gyroscope-mag-standard-deviation
+  +	frequency-body-body-gyroscope-jerkmag-mean
+  +	frequency-body-body-gyroscope-jerkmag-standard-deviation
