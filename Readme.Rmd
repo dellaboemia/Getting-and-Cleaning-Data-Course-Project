@@ -125,6 +125,6 @@ names(analysis_summary)[names(analysis_summary) == "V2"] <- "activity-labels"
 # Write Files
 The following code writes both files in .csv format.
 ```{r}
-write.table(analysis, file = "run_analysis.txt", row.names = FALSE)
-write.table(analysis_summary, file = "run_analysis_summary.txt", row.names = FALSE)
+write.table(analysis, file = "run_analysis.txt", sep="\t", row.names = FALSE)
+write.table(analysis_summary, file = "run_analysis_summary.txt", sep="\t", row.names = FALSE)
 '''
