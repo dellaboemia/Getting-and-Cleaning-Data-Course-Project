@@ -68,5 +68,5 @@ names(analysis)[names(analysis) == "V2"] <- "activity-labels"
 names(analysis_summary)[names(analysis_summary) == "V2"] <- "activity-labels"
 
 # Write files
-write.table(analysis, file = "run_analysis.txt", row.names = FALSE)
-write.table(analysis_summary, file = "run_analysis_summary.txt", row.names = FALSE)
+write.table(analysis, file = "run_analysis.txt", sep="\t", row.names = FALSE)
+write.table(analysis_summary, file = "run_analysis_summary.txt", sep="\t", row.names = FALSE)
