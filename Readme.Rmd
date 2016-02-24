@@ -86,7 +86,7 @@ names(measurements) <- tolower(features$V2)
 ```
 
 ## Select Mean and Standard Deviation Variables
-The following code Selects the 66 mean and standard deviation variables from measurement data
+The following code Selects the 66 mean and standard deviation variables from measurement data.  Note, 20 variables measuring meanFreq and angle gravityMean have been omitted from the selection since these variables are derived from the 66 variables selected.
 ```{r}
 measurements <- measurements[,grepl("(mean\\(\\)|std\\(\\))", names(measurements))]
 ```
