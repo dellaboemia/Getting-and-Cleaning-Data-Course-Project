@@ -140,3 +140,25 @@ Both output files contain the following 68 variables
   +	frequency-body-body-gyroscope-mag-standard-deviation
   +	frequency-body-body-gyroscope-jerkmag-mean
   +	frequency-body-body-gyroscope-jerkmag-standard-deviation
+
+Note, the following measurements were not included as they are derived from the atomic measurements above
+*	fBodyAcc-meanFreq()-X
+*	fBodyAcc-meanFreq()-Y
+*	fBodyAcc-meanFreq()-Z
+*	fBodyAccJerk-meanFreq()-X
+*	fBodyAccJerk-meanFreq()-Y
+*	fBodyAccJerk-meanFreq()-Z
+*	fBodyGyro-meanFreq()-X
+*	fBodyGyro-meanFreq()-Y
+*	fBodyGyro-meanFreq()-Z
+*	fBodyAccMag-meanFreq()
+*	fBodyBodyAccJerkMag-meanFreq()
+*	fBodyBodyGyroMag-meanFreq()
+*	fBodyBodyGyroJerkMag-meanFreq()
+*	angle(tBodyAccMean,gravity)
+*	angle(tBodyAccJerkMean),gravityMean)
+*	angle(tBodyGyroMean,gravityMean)
+*	angle(tBodyGyroJerkMean,gravityMean)
+*	angle(X,gravityMean)
+*	angle(Y,gravityMean)
+*	angle(Z,gravityMean)
