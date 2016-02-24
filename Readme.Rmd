@@ -43,7 +43,15 @@ if (!file.exists("run_analysis")){
 ```
 
 ## Read Data
-This code reads the list of features, the activity labels, and the subjects, measurements, and activities for the test and training datasets.
+This code reads the key files required for analysis into tables for further analysis.  The files are as follows:
+* features.txt - lists all 561 features measured during the experiment.
+* activity_lables.txt - lists a number and a label for each of the 6 activities observed.
+* subject_test.txt - lists the subject identifiers for each of the subjects observed in the test dataset.
+* X_test.txt - a matrix specifying the values for each of the 561 variables measured over the 2947 observations in the test dataset
+* y_test.txt - a vector listing the activity associated with each of the 2947 observations in the test dataset
+* subject_train.txt - lists the subject identifiers for each of the subjects observed in the training  dataset.
+* X_train.txt - a matrix specifying the values for each of the 561 variables measured over the 7352 observations in the training dataset
+* y_train.txt - a vector listing the activity associated with each of the 7352 observations in the training dataset
 
 ```{r}
 features        <- read.table("features.txt")
