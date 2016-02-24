@@ -1,0 +1,122 @@
+---
+title: "Readme - Getting and Cleaning Data Course Project"
+author: "J2"
+date: "February 24, 2016"
+output: html_document
+---
+#Getting and Cleaning Data Course Project
+
+##Overview
+Human Activity Recognition database comprises the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.  The experiments were carried out with a group of 30 volunteers, each person performed six activities (WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTING, STANDING, LAYING), while wearing a smartphone (Samsung Galaxy S II) on the waist.  Using its embedded accelerometer and gyroscope, the researchers captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.  The obtained dataset was randomly partitioned into two sets, where 70% (7352 observations) of the volunteers were selected for generating the training data and 30% (2947 observations) selected for the test data.
+
+##Project Objectives
+The purpose of this project is to translate the raw data which was downloaded from the Human Activity Recognition Using Smartphones Data Set Project and prepare two tidy data sets to be used for future analysis, in accordance with the course project instructions listed below
+1.  Merge the training and the test sets to create one data set.
+2.  Extract only the measurements on the mean and standard deviation for each measurement.
+3.  Use descriptive activity names to name the activities in the data set
+4.  Appropriately label the data set with descriptive variable names.
+5.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+##Prerequisites
+The project requires the following R package libraries as follows.
+```{r}
+library(dplyr)
+library(data.table)
+library(downloader)
+```
+
+## Download Data
+The following code creates a new directory, run_analysis (if not already created), then downloads and unzips the data. 
+```{r}
+setwd("C:\\Users\\John\\Documents\\Dropbox\\Online Learning\\Data Science\\Data Science Specialization\\Getting & Cleaning Data\\Code")
+if (!file.exists("run_analysis")){
+  dir.create("run_analysis")
+  setwd("./run_analysis")
+  url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  download(url, dest="dataset.zip", mode="wb") 
+  unzip ("dataset.zip")
+  setwd("UCI HAR Dataset")
+  
+} else {
+  setwd("run_analysis/UCI HAR Dataset")
+}
+```
+
+## Read Data
+This code reads the list of features, the activity labels, and the subjects, measurements, and activities for the test and training datasets.
+
+```{r}
+features        <- read.table("features.txt")
+activity_labels <- read.table("activity_labels.txt",stringsAsFactor=FALSE)
+test_subjects   <- read.table("test/subject_test.txt")
+test            <- read.table("test/X_test.txt")
+test_activity   <- read.table("test/y_test.txt")
+train_subjects  <- read.table("train/subject_train.txt")
+train           <- read.table("train/X_train.txt")
+train_activity  <- read.table("train/y_train.txt")
+```
+
+## Combine Subject Data
+The following code combines the subject data from both the test and training datasets, into a single dataframe.  
+```{r}
+subjects <-rbind(test_subjects, train_subjects)
+names(subjects) <- "subject"
+```
+
+## Combine Activity Data
+The following code combines the activity data  from both the test and training datasets, into a single dataframe.
+```{r}
+activities <- rbind(test_activity, train_activity)
+names(activities) <- "activities"
+```
+
+## Combine Measurement Data
+The following code combines the measurement data from both the test and training datasets, into a single dataframe. 
+```{r}
+measurements <- rbind(test, train)
+names(measurements) <- tolower(features$V2)
+```
+
+## Select Mean and Standard Deviation Variables
+The following code Selects the 66 mean and standard deviation variables from measurement data
+```{r}
+measurements <- measurements[,grepl("(mean\\(\\)|std\\(\\))", names(measurements))]
+```
+
+## Assign Descriptive Variable Names
+The following code assigns descriptive variable names to the selected features.
+```{r}
+names(measurements) <- names(measurements) %>%
+  sub("^t", "time-", .)   %>%
+  sub("^f", "frequency-", .)   %>%
+  gsub("\\.","",.)  %>%
+  gsub("body", "body-", .) %>%
+  gsub("gravity", "gravity-", .) %>%  
+  gsub("acc", "accelerometer-", .) %>%  
+  gsub("gyro", "gyroscope-", .) %>%
+  gsub("mag", "magnitude-", .) %>%
+  gsub("std\\(\\)", "standard-deviation", .) %>%
+  gsub("mean\\(\\)", "mean", .) 
+```  
+
+## Combine Subject, Activity and Measurement Data
+This code combines the subject, activity, and measurement data into a single dataframe.  In addition, the activity labels are merged into the dataframe, and the activity numbers are deleted.
+```{r}
+analysis <- cbind(subjects, activities, measurements)
+analysis <- merge(analysis, activity_labels, by.x = "activities", by.y = "V1")
+analysis$activities <- NULL
+```
+
+# Summarize Data
+The following code summarizes the data by subject and activity(column v2) and uses the summarise_each function to calculate the mean of the 66 variables selected above.  Lastly, the activity label column is appropriately renamed in both the analysis and analysis summary dataframes.
+```{r}
+analysis_summary <- analysis %>% group_by(subject, V2) %>% summarise_each(funs(mean))
+names(analysis)[names(analysis) == "V2"] <- "activity-labels"
+names(analysis_summary)[names(analysis_summary) == "V2"] <- "activity-labels"
+```
+# Write Files
+The following code writes both files in .csv format.
+```{r}
+write.csv(analysis, file = "run_analysis.txt")
+write.csv(analysis_summary, file = "run_analysis_summary.txt")
+'''
